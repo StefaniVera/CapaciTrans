@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+header a {
+    @apply block border-white border-2 text-white px-5 rounded-2xl mx-4 my-3;
+}
+
+form input {
+    @apply border-2 rounded-sm px-1.5 py-1 border-slate-800 text-gray-800 w-full hover:bg-blue-100;
+}
