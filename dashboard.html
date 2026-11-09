@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapaciTrans</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+</head>
+
+<body class="grid grid-rows-[50px_1fr] w-full h-screen">
+    <nav class="flex justify-between bg-white px-8 max-h-fit">
+        <div class="flex flex-row items-center">
+            <img src="assets/bus-icon.png" alt="bus-icon" class="w-13 mr-1">
+            <h2 class="self-center font-bold text-blue-900 text-lg">CapaciTrans</h2>
+        </div>
+        <div>
+            <h3 class="mt-3">Halo, <span id="user-email"></span>!</h3>
+        </div>
+    </nav>
+    <main class="bg-blue-600">
+        <section id="dashboard" class="flex flex-col gap-10 px-8 pt-6">
+            <div>
+                <h3 class="font-bold text-4xl text-white">Metro Jabar Trans</h3>
+                <h4 class="mt-1 text-white">Koridor 5: DU - Jatinangor</h4>
+                <h4 class="mt-6 text-white">Prediksi Bulan: Oktober 2026</h4>
+                <div class="flex justify-between gap-8">
+                    <div class="container">
+                        <h5>Prediksi Penumpang</h5>
+                        <p>120.000 Orang</p>
+                    </div>
+                    <div class="container">
+                        <h5>Jumlah Armada</h5>
+                        <p>25 Bus</p>
+                    </div>
+                    <div class="container">
+                        <h5>Kapasitas Bus</h5>
+                        <p>42 Orang</p>
+                    </div>
+                    <div class="container">
+                        <h5>Status</h5>
+                        <p>Cukup</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-full h-100 bg-white rounded-md p-5">
+                <canvas id="grafik-penumpang"></canvas>
+            </div>
+            
+            <div class="overflow-hidden rounded-md border border-gray-700 text-gray-900 bg-white mb-10">
+                <table id="rekap-penumpang" class="w-full border-collapse">
+                    <thead>
+                        <tr>
+                            <th>Bulan</th>
+                            <th>Jumlah Penumpang</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Januari</td>
+                            <td>108,889</td>
+                        </tr>
+                        <tr>
+                            <td>Februari</td>
+                            <td>135,502</td>
+                        </tr>
+                        <tr>
+                            <td>Maret</td>
+                            <td>126,926</td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td>171,050</td>
+                        </tr>
+                        <tr>
+                            <td>Mei</td>
+                            <td>159,344</td>
+                        </tr>
+                        <tr>
+                            <td>Juni</td>
+                            <td>164,516</td>
+                        </tr>
+                        <tr>
+                            <td>Juli</td>
+                            <td>147,559</td>
+                        </tr>
+                        <tr>
+                            <td>Agustus</td>
+                            <td>193,804</td>
+                        </tr>
+                        <tr>
+                            <td>September</td>
+                            <td>191,420</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 h-15 text-white flex justify-around items-center">
+        <p>&copy 2026 CapaciTrans. All Rights Reserved</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="table.js"></script>
+</body>
+</html>

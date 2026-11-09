@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapaciTrans</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    <section id="landing-page" class="bg-linear-to-tr from-blue-900 via-blue-700 to-blue-400 flex flex-col justify-center items-center text-white min-h-screen">
+        <div>
+            <h1 class="text-7xl font-bold text-center">CapaciTrans</h1>
+            <p class="text-2xl font-normal mt-7">Prediksi jumlah penumpang dan kapasitas armada disini!</p>
+        </div>
+        <button onclick="goToLogin()" class="mt-10 bg-linear-to-r from-yellow-600 to-orange-700 rounded-4xl px-7 py-3 font-bold hover:scale-120 cursor-pointer transition-all ease-in-out active:scale-105">
+            Login
+        </button>
+        <div id="login-page" class="hidden fixed bg-white border-2 border-blue-t00 shadow-lg shadow-blue-400 rounded-md w-70 h-85 text-black">
+            <div class="flex justify-end">
+                <button onclick="goToLanding()" class="text-gray-600 hover:cursor-pointer mr-2">X</button>
+            </div>
+            <div>
+                <div class="flex flex-col items-center mt-2">
+                    <p class="text-3xl font-bold text-blue-700">Welcome Back</p>
+                    <p class="text-sm text-gray-700">Login to your account</p>
+                </div>
+            </div>
+            <form onsubmit="tesLogin(event)" class="p-6 mt-2">
+                <div>
+                    <input type="text" id="emailInput" required placeholder="Email" name="email" class="mb-3 border p-1 w-full">
+                </div>
+                <div>
+                    <input type="password" id="passwordInput" required placeholder="Password" name="password" class="border p-1 w-full">
+                </div>
+            <div id="statusMendunia" class="status-box"></div>
+                <button type="submit" name="login" class="mt-6 bg-blue-900 text-white py-1.5 rounded-md hover:cursor-pointer w-full">
+                    Login
+                </button>
+                <a href="#" class="block mt-2 text-sm text-center text-blue-700">Forgot password?</a>
+            </form>
+        </div>
+    </section>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
