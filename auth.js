@@ -12,7 +12,6 @@ async function proteksiHalaman() {
     const target = document.getElementById('user-email');
     if (target) target.innerText = session.user.email.split('@')[0];
 }
-proteksiHalaman();
 
 async function tesLogin(e) {
     e.preventDefault(); 
@@ -44,5 +43,4 @@ async function tesLogin(e) {
 
 if (window.location.pathname.includes('dashboard')) {
     proteksiHalaman();
-    tampilkanHaloUser();
 }
