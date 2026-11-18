@@ -1,43 +1,53 @@
 @import "tailwindcss";
 
+/* ==================== BASE / AUTH ==================== */
 header a {
-    @apply block border-white border-2 text-white px-5 rounded-2xl mx-4 my-3;
+    @apply block border-2 border-white text-white px-5 rounded-2xl mx-4 my-3;
 }
 
 form input {
-    @apply border-2 rounded-sm px-1.5 py-1 border-slate-800 text-gray-800 w-full outline-none hover:bg-blue-100;
+    @apply w-full border-2 border-slate-800 rounded-sm px-1.5 py-1 text-gray-800 outline-none hover:bg-blue-100;
 }
 
-.status-box { 
-    @apply mt-1.5 ml-1 text-xs; 
+.status-box {
+    @apply mt-1.5 ml-1 text-xs;
 }
 
-.gagal { 
-    @apply text-red-700; 
+.gagal {
+    @apply text-red-700;
 }
 
-
-/* -------------------- LISTS DASHBOARD -------------------- */
-/* #navbar-lists .list-active. {
-    @apply mb-2 px-3 py-1.5 text-blue-700 bg-blue-100 rounded-sm hover:cursor-pointer hover:rounded-sm hover:text-blue-700 hover:bg-blue-100 transition-colors;
-} */
-
-/* #navbar-lists li {
-    @apply mb-2 px-3 py-1.5 text-shadow-black hover:cursor-pointer hover:rounded-sm hover:text-blue-700 hover:bg-blue-100 transition-colors;
-} */
-
-
-/* ---------- CARD DASHBOARD ------------ */
+/* ==================== DASHBOARD: KARTU ==================== */
 main .container {
-    @apply bg-white mt-3 h-fit px-5 py-3 rounded-sm shadow-lg shadow-blue-500;
+    @apply bg-white mt-3 h-25 px-5 py-3 rounded-sm shadow-lg shadow-blue-500;
 }
 
-main .container p{
-    @apply text-2xl;
+main .container h5 {
+    @apply text-gray-600;
 }
 
+main .container p {
+    @apply text-2xl mt-3;
+}
 
-/* --------------- TABLE DESIGN --------------- */
+/* ==================== DASHBOARD: STEPPER (+/-) ==================== */
+.stepper {
+    @apply flex items-center gap-2.5 whitespace-nowrap;
+}
+
+.stepper small {
+    @apply text-[0.85rem] text-gray-500;
+}
+
+.btn-ubah {
+    @apply mt-3.5 size-7 shrink-0 items-center justify-center rounded-full
+           border-[1.5px] border-blue-900 bg-white text-blue-900
+           font-sans text-lg font-bold leading-none pb-0.5
+           cursor-pointer transition duration-150
+           hover:bg-blue-900 hover:text-white active:scale-90;
+}
+
+/* ==================== DASHBOARD: TABEL ==================== */
 #rekap-penumpang th {
     @apply px-3 py-2 bg-gray-200 border-b border-gray-700;
 }

@@ -4,43 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CapaciTrans</title>
+    <link rel="icon" type="image/png" href="assets/bus-icon.png">
     <link rel="stylesheet" href="output.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 </head>
 
-<body class="grid grid-rows-[50px_1fr] w-full h-screen">
-    <nav class="flex justify-between bg-white px-8 max-h-fit">
-        <div class="flex flex-row items-center">
+<body class="w-full h-screen">
+    <nav class="flex justify-between bg-white px-8 h-15 items-center">
+        <div class="flex flex-row">
             <img src="assets/bus-icon.png" alt="bus-icon" class="w-13 mr-1">
             <h2 class="self-center font-bold text-blue-900 text-lg">CapaciTrans</h2>
         </div>
-        <div>
-            <h3 class="mt-3">Halo, <span id="user-email"></span>!</h3>
-        </div>
+        <h3>Halo, <span id="user-email"></span>!</h3>
     </nav>
     <main class="bg-blue-600">
         <section id="dashboard" class="flex flex-col gap-10 px-8 pt-6">
             <div>
-                <h3 class="font-bold text-4xl text-white">Metro Jabar Trans</h3>
-                <h4 class="mt-1 text-white">Koridor 5: DU - Jatinangor</h4>
-                <h4 class="mt-6 text-white">Prediksi Bulan: Oktober 2026</h4>
-                <div class="flex justify-between gap-8">
+                <div class="flex justify-between items-start mb-9">
+                    <div>
+                        <h3 class="font-bold text-4xl text-white">Metro Jabar Trans</h3>
+                        <h4 class="mt-1 text-white">Koridor 5: DU - Jatinangor</h4>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="btn-reset" style="display:none" class="bg-white text-blue-900 font-semibold px-4 py-2 rounded-md cursor-pointer">
+                            Reset
+                        </button>
+                        <button id="btn-simulasi" class="bg-white text-blue-900 font-semibold px-4 py-2 rounded-md cursor-pointer">
+                            Simulasi
+                        </button>
+                    </div>
+                </div>
+
+                <label for="pilih-bulan" class="text-m text-white">Prediksi Bulan: </label>
+                <select id="pilih-bulan" class="bg-white text-gray-800 text-sm rounded px-2 py-1 font-medium cursor-pointer">
+                    <option value="oktober">Oktober 2026</option>
+                    <option value="november">November 2026</option>
+                    <option value="desember">Desember 2026</option>
+                </select>
+                <div class="flex justify-between gap-4">
                     <div class="container">
                         <h5>Prediksi Penumpang</h5>
-                        <p>120.000 Orang</p>
+                        <p id="card-prediksi"></p>
                     </div>
                     <div class="container">
                         <h5>Jumlah Armada</h5>
-                        <p>25 Bus</p>
+                        <div class="stepper">
+                            <button class="btn-ubah" style="display:none" data-param="armada" data-arah="-1" aria-label="Kurangi armada">−</button>
+                            <p><span id="armada-angka">25</span> <small>Bus</small></p>
+                            <button class="btn-ubah" style="display:none" data-param="armada" data-arah="1" aria-label="Tambah armada">+</button>
+                        </div>
                     </div>
                     <div class="container">
                         <h5>Kapasitas Bus</h5>
-                        <p>42 Orang</p>
+                        <div class="stepper">
+                            <button class="btn-ubah" style="display:none" data-param="kapasitas" data-arah="-1" aria-label="Kurangi kapasitas">−</button>
+                            <p><span id="kapasitas-angka">42</span> <small>Orang</small></p>
+                            <button class="btn-ubah" style="display:none" data-param="kapasitas" data-arah="1" aria-label="Tambah kapasitas">+</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h5>Banyak Trip</h5>
+                        <div class="stepper">
+                            <button class="btn-ubah" style="display:none" data-param="trip" data-arah="-1" aria-label="Kurangi trip">−</button>
+                            <p><span id="trip-angka">4</span> <small>Trip / Bus</small></p>
+                            <button class="btn-ubah" style="display:none" data-param="trip" data-arah="1" aria-label="Tambah trip">+</button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h5>Penumpang Terlayani</h5>
+                        <p id="card-terlayani"></p>
                     </div>
                     <div class="container">
                         <h5>Status</h5>
-                        <p>Cukup</p>
+                        <p id="card-status"></p>
                     </div>
                 </div>
             </div>
@@ -69,6 +106,8 @@
     </footer>
 
     <script src="auth.js"></script>
+    <script src="perhitungan.js"></script>
     <script src="table.js"></script>
+    <script src="simulasi.js"></script>
 </body>
 </html>
